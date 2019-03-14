@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @desc ：商品类目服务实现
+ * @desc ：商品类目服务impl
  * @auth ：pdp
  * @date ：Created in 2019/3/14 17:32
  */

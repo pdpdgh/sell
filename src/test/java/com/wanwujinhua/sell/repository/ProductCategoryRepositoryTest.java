@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @desc ：
+ * @desc ：商品类目repo测试
  * @auth ：pdp
  * @date ：Created in 2019/3/14 15:13
  */
