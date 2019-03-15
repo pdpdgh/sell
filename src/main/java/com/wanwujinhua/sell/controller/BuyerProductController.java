@@ -36,10 +36,11 @@ public class BuyerProductController {
 
     @GetMapping("/list")
     public ResultVO list() {
-        //1. 查询所有的上架商品
+
+        /** 1. 查询所有的上架商品 */
         List<ProductInfo> productInfoList = productService.findUpAll();
 
-        //2. 查询类目（一次性查询）
+        /** 2. 查询类目（一次性查询）*/
         //传统方法
 //        List<Integer> categoryTypeList = new ArrayList<>();
 //        for (ProductInfo productInfo : productInfoList) {
@@ -51,7 +52,7 @@ public class BuyerProductController {
                 .collect(Collectors.toList());
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
 
-        //3. 数据拼装
+        /** 3. 数据拼装 */
         List<ProductVO> productVOList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
             ProductVO productVO = new ProductVO();
