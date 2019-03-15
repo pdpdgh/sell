@@ -1,7 +1,6 @@
 package com.wanwujinhua.sell.dataobject;
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,7 +12,6 @@ import java.math.BigDecimal;
  * @date ：Created in 2019/3/14 18:42
  */
 @Entity
-@DynamicUpdate
 @Data
 public class ProductInfo {
 

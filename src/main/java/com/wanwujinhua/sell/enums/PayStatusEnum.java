@@ -3,21 +3,21 @@ package com.wanwujinhua.sell.enums;
 import lombok.Getter;
 
 /**
- * @desc ：商品状态enum
+ * @desc ：支付状态enum
  * @auth ：pdp
- * @date ：Created in 2019/3/14 20:11
+ * @date ：Created in 2019/3/15 15:19
  */
 @Getter
-public enum ProductStatusEnum {
-    UP(0, "上架"),
-    DOWN(1, "下架")
+public enum PayStatusEnum {
+    WAIT(0, "等待支付"),
+    SUCCESS(1, "支付成功"),
     ;
 
     private Integer code;
 
     private String message;
 
-    ProductStatusEnum(Integer code, String message) {
+    PayStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
