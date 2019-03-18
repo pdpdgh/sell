@@ -1,6 +1,8 @@
 package com.wanwujinhua.sell.utils;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.wanwujinhua.sell.VO.ResultVO;
+import lombok.Data;
 
 /**
  * @desc ：ResultVOUtil

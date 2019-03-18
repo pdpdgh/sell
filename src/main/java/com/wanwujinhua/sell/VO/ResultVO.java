@@ -1,5 +1,6 @@
 package com.wanwujinhua.sell.VO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -15,6 +16,7 @@ public class ResultVO<T> {
 
     /** @desc : 提示信息 */
     private String msg;
+//    private String msg = "";
 
     /** @desc : 具体内容 */
     private T data;
