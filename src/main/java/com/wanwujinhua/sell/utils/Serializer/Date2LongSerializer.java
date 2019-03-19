@@ -1,4 +1,4 @@
-package com.wanwujinhua.sell.utils;
+package com.wanwujinhua.sell.utils.Serializer;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

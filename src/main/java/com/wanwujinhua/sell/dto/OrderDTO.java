@@ -1,13 +1,11 @@
 package com.wanwujinhua.sell.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wanwujinhua.sell.dataobject.OrderDetail;
-import com.wanwujinhua.sell.utils.Date2LongSerializer;
+import com.wanwujinhua.sell.utils.Serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
