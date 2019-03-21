@@ -32,13 +32,14 @@ public class WechatController {
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         /** 先配置，再调用方法 */
-        String url = "http://wfftgm.natappfree.cc/sell/wechat/userInfo";
-        String redirectUrl = "";
-        try {
-            redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_BASE, URLEncoder.encode(returnUrl, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            log.error("【微信网页授权】 returnUrl编码错误，{}", e);
-        }
+        String url = "http://pdpnat.natapp1.cc/sell/wechat/userInfo";
+        String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_USERINFO, URLEncoder.encode(returnUrl));
+
+//        try {
+//            redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_BASE, URLEncoder.encode(returnUrl, "UTF-8"));
+//        } catch (UnsupportedEncodingException e) {
+//            log.error("【微信网页授权】 returnUrl编码错误，{}", e);
+//        }
         return "redirect:" + redirectUrl;
     }
 

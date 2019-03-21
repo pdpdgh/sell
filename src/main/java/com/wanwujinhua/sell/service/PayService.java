@@ -2,6 +2,7 @@ package com.wanwujinhua.sell.service;
 
 import com.lly835.bestpay.model.PayResponse;
 import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
 import com.wanwujinhua.sell.dto.OrderDTO;
 
 /**
@@ -14,6 +15,6 @@ public interface PayService {
     PayResponse create(OrderDTO orderDTO);
 
     PayResponse notify(String notifyData);
-//
-//    RefundRequest refund(OrderDTO orderDTO);
+
+    RefundResponse refund(OrderDTO orderDTO);
 }
