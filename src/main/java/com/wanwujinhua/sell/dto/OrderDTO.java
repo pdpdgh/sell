@@ -1,7 +1,11 @@
 package com.wanwujinhua.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wanwujinhua.sell.dataobject.OrderDetail;
+import com.wanwujinhua.sell.enums.OrderStatusEnum;
+import com.wanwujinhua.sell.enums.PayStatusEnum;
+import com.wanwujinhua.sell.utils.EnumUtil;
 import com.wanwujinhua.sell.utils.Serializer.Date2LongSerializer;
 import lombok.Data;
 
@@ -52,4 +56,14 @@ public class OrderDTO {
 
     List<OrderDetail> orderDetailList;
 //    List<OrderDetail> orderDetailList = new ArrayList<>();
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }
