@@ -1,0 +1,94 @@
+body {
+  font-size: .875rem;
+}
+
+.feature-divider {
+  width: 100%;
+  margin: 0rem;
+  padding: 0rem;
+  background-color: dimgray;
+}
+
+.sidebar {
+  padding: 0rem;
+  margin: 0rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#sidebar-heading {
+  background-color: cadetblue;
+  color: #FFFFFF;
+}
+
+.nav {
+  padding: 0rem;
+  margin: 0rem;
+  width: 100%;
+}
+
+.nav a {
+  padding-left: 20%;
+}
+
+.nav-item {
+  margin: 0rem;
+  padding: 0rem;
+  width: 100%;
+}
+
+.nav-item a:hover,
+#collapse-product a:hover,
+#collapse-category a:hover {
+  background-color: darkgrey;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+#collapse-product .card-body,
+#collapse-category .card-body {
+  padding: 0rem;
+  margin: 0rem;
+  background-color: #484848;
+}
+
+#collapse-product a,
+#collapse-category a {
+  padding: 0rem;
+  margin: 0rem;
+  width: 100%;
+  text-align: right;
+  padding-right: 20%;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.table {
+  margin: 0rem;
+  padding: 0rem;
+  width: 100%;
+}
+
+.pagination {
+  margin: 0rem;
+  padding: 0rem;
+  width: 100%;
+  right: 0;
+}
+
+.main {
+  margin: 0rem;
+  padding: 0rem;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+
