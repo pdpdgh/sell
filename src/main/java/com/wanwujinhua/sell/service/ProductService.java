@@ -34,4 +34,14 @@ public interface ProductService {
      * @desc : 减库存
      */
     void decreaseStock(List<CartDTO> cartDTOList);
+
+    /**
+     * @desc : 上架
+     */
+    ProductInfo onSale(String productId);
+
+    /**
+     * @desc : 下架
+     */
+    ProductInfo offSale(String productId);
 }

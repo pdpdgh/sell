@@ -47,16 +47,28 @@ public class ProductServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("123457");
-        productInfo.setProductName("皮皮虾");
-        productInfo.setProductPrice(new BigDecimal(3.2));
-        productInfo.setProductStock(100);
-        productInfo.setProductDescription("很好喝的虾");
-        productInfo.setProductIcon("http://xxxxx.jpg");
+        productInfo.setProductId("55634");
+        productInfo.setProductName("芒果冰55");
+        productInfo.setProductPrice(new BigDecimal(8.0));
+        productInfo.setProductStock(25);
+        productInfo.setProductDescription("女生很爱");
+        productInfo.setProductIcon("https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=57fcd535e1f81a4c323fe49bb6430b3c/4034970a304e251fce0583b9ad86c9177e3e5384.jpg");
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
-        productInfo.setCategoryType(2);
+        productInfo.setCategoryType(15);
 
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void onSale() {
+        ProductInfo result = productService.onSale("846799");
+        Assert.assertEquals(ProductStatusEnum.UP, result.getProductStatusEnum());
+    }
+
+    @Test
+    public void offSale() {
+        ProductInfo result = productService.offSale("846799");
+        Assert.assertEquals(ProductStatusEnum.DOWN, result.getProductStatusEnum());
     }
 }

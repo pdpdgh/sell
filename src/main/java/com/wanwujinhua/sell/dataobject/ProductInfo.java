@@ -1,10 +1,15 @@
 package com.wanwujinhua.sell.dataobject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wanwujinhua.sell.enums.ProductStatusEnum;
+import com.wanwujinhua.sell.utils.EnumUtil;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @desc ：商品信息
@@ -13,6 +18,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Data
+@DynamicUpdate
 public class ProductInfo {
 
     /** @desc : id */
@@ -39,4 +45,15 @@ public class ProductInfo {
 
     /** @desc : 类目编号 */
     private Integer categoryType;
+
+    /** @desc : 创建时间 */
+    private Date createTime;
+
+    /** @desc : 更新时间 */
+    private Date updateTime;
+
+    @JsonIgnore
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
+    }
 }
