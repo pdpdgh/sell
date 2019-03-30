@@ -1,12 +1,14 @@
 package com.wanwujinhua.sell.exception;
 
 import com.wanwujinhua.sell.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * @desc ：SellException
  * @auth ：pdp
  * @date ：Created in 2019/3/16 2:45
  */
+@Getter
 public class SellException extends RuntimeException {
 
     private Integer code;
