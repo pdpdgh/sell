@@ -72,6 +72,30 @@
     </div>
 </div>
 
+<#--弹窗-->
+<div class="modal" id="modal-websocket" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">提醒</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <p>你有新的订单！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="javascript:document.getElementById('notice').pause()" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <button type="button" onclick="location.reload()" class="btn btn-primary" data-dismiss="modal">查看新的订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<#--播放音乐-->
+<audio id="notice" loop="loop">
+    <source src="/sell/mp3/song.mp3" type="audio/mpeg"/>
+</audio>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -79,7 +103,30 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
-    <#---->
+    var websocket = null;
+    if ('WebSocket' in window) {
+        websocket = new WebSocket('ws://pdpnat.natapp1.cc/sell/webSocket');
+    } else {
+        alert('该浏览器不支持websocket! ');
+    }
+    websocket.onopen = function (event) {
+        console.log('建立连接');
+    }
+    websocket.onclose = function (event) {
+        console.log('连接关闭');
+    }
+    websocket.onmessage = function (event) {
+        console.log('收到消息：' + event.data);
+        // 弹窗提醒，播放音乐
+        $('#modal-websocket').modal('show');
+        document.getElementById('notice').play();
+    }
+    websocket.onerror = function (event) {
+        alert('websocket通信发生错误！');
+    }
+    window.onbeforeunload = function (event) {
+        websocket.close();
+    }
 </script>
 
 </body>
