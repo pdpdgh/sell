@@ -1,0 +1,49 @@
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: /var/log/tomcat/
+##  file: /var/log/tomcat/sell.log
+##  level:
+##    com.wanwujinhua.LoggerTest: debug
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.3.14/sell?characterEncoding=utf-8&useSSL=false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.3.14
+    port: 6379
+
+server:
+  servlet:
+    context-path: /sell
+
+wechat:
+  mpAppId: wxa5c8f272d562936f
+  mpAppSecret: 902e84e91ddc48566731107bb568ce99
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  mchId: 1409146202
+  mchKey: c976503d34ca432c601361f969fd8d85
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://pdpnat.natapp1.cc/sell/pay/notify
+  templateId:
+    orderStatus: sAnxUKUkdP1iYb_IbFd2TXomZ7vJ-bTv5D9FJgH9_7k
+
+project-url:
+  wechatMpAuthorize: http://pdpnat.natapp1.cc
+  wechatOpenAuthorize: http://pdpnat.natapp1.cc
+  sell: http://pdpnat.natapp1.cc
+
+logging:
+  level:
+    com.wanwujinhua.sell.dataobject.mapper: trace
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
