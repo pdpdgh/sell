@@ -8,12 +8,14 @@ import com.wanwujinhua.sell.exception.SellException;
 import com.wanwujinhua.sell.repository.ProductInfoRepository;
 import com.wanwujinhua.sell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.security.spec.PSSParameterSpec;
 import java.util.List;
 
 /**
@@ -22,12 +24,14 @@ import java.util.List;
  * @date ：Created in 2019/3/14 20:15
  */
 @Service
+//@CacheConfig(cacheNames = "product")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
 
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo findOne(String productId) {
         return repository.findById(productId).orElse(null);
     }
@@ -43,6 +47,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+//    @CachePut(key = "123")
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }
